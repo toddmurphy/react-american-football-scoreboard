@@ -4,8 +4,10 @@ import './App.css';
 const quarterStart = 1;
 
 const BottomRow = () => {
-  const [quarter, setQuarter] = useState(1); // sets initial state value of quarter to '1'
-
+  let [quarter, setQuarter] = useState(1); // sets initial state value of quarter to '1'
+  if (quarter > 4) {
+    setQuarter((quarter = 4));
+  }
   // onClick eventListener to increase the quarter by 1 --> maximum of 4 quarters(can't go higher than 4)
   const quarterTotal = event => {
     setQuarter(quarter + quarterStart);

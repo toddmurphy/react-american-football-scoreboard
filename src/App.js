@@ -13,25 +13,32 @@ function App() {
   const [homeScore, setHomeScore] = useState(0); //sets the initial home score state value to '0'
   const [awayScore, setAwayScore] = useState(0); //sets the inital away score state value to '0'
 
-  //onClick eventListener to increase homeScore by 7 points for touchdown
-  const homeTouchdown = event => {
+  //Home score
+  //onClick eventListener to increase homeScore by 7 points for homeTouchdown
+  /* const homeTouchdown = event => {
     setHomeScore(homeScore + touchdown);
-  };
+  }; */
 
-  //onClick eventListener to increase homeScore by 3 points for fieldgoal
-  const homeFieldgoal = event => {
+  //onClick eventListener to increase homeScore by 3 points for homeFieldgoal
+  /*  const homeFieldgoal = event => {
     setHomeScore(homeScore + fieldgoal);
-  };
+  }; */
 
-  //onClick eventListener to increase awayScore by 7 points for touchdown
-  const awayTouchdown = event => {
+  //Away score
+  //onClick eventListener to increase awayScore by 7 points for awayTouchdown
+  /* const awayTouchdown = event => {
     setAwayScore(awayScore + touchdown);
-  };
+  }; */
 
-  //onClick eventListener to increase awayScore by 3 points for fieldgoal
-  const awayFieldgoal = event => {
+  //onClick eventListener to increase awayScore by 3 points for awayFieldgoal
+  /* const awayFieldgoal = event => {
     setAwayScore(awayScore + fieldgoal);
-  };
+  }; */
+
+  //Callback function to pass into one function to 'change score/update state'
+  function higherOrderAddToScore(teamScore, typeOfScore, cb) {
+    return cb(teamScore + typeOfScore);
+  }
 
   return (
     <div className="container">
@@ -56,18 +63,18 @@ function App() {
       <section className="buttons">
         <div className="homeButtons">
           {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-          <button onClick={homeTouchdown} className="homeButtons__touchdown">
+          <button onClick={() => higherOrderAddToScore(homeScore, touchdown, setHomeScore)} className="homeButtons__touchdown">
             Home Touchdown
           </button>
-          <button onClick={homeFieldgoal} className="homeButtons__fieldGoal">
+          <button onClick={() => higherOrderAddToScore(homeScore, fieldgoal, setHomeScore)} className="homeButtons__fieldGoal">
             Home Field Goal
           </button>
         </div>
         <div className="awayButtons">
-          <button onClick={awayTouchdown} className="awayButtons__touchdown">
+          <button onClick={() => higherOrderAddToScore(awayScore, touchdown, setAwayScore)} className="awayButtons__touchdown">
             Away Touchdown
           </button>
-          <button onClick={awayFieldgoal} className="awayButtons__fieldGoal">
+          <button onClick={() => higherOrderAddToScore(awayScore, fieldgoal, setAwayScore)} className="awayButtons__fieldGoal">
             Away Field Goal
           </button>
         </div>
