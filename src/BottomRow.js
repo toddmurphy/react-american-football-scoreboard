@@ -5,6 +5,7 @@ const quarterStart = 1;
 
 const BottomRow = () => {
   let [quarter, setQuarter] = useState(1); // sets initial state value of quarter to '1'
+  // I want the quarters to stop at 4 -> can't be any larger than 4 in football
   if (quarter > 4) {
     setQuarter((quarter = 4));
   }
@@ -12,7 +13,6 @@ const BottomRow = () => {
   const quarterTotal = event => {
     setQuarter(quarter + quarterStart);
   };
-
   return (
     <div className="bottomRow">
       <div className="down">

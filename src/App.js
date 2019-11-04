@@ -77,6 +77,15 @@ function App() {
           <button onClick={() => higherOrderAddToScore(awayScore, fieldgoal, setAwayScore)} className="awayButtons__fieldGoal">
             Away Field Goal
           </button>
+          <button
+            onClick={() => {
+              setHomeScore(0);
+              setAwayScore(0);
+            }}
+            className="awayButtons__fieldGoal"
+          >
+            Reset Score
+          </button>
         </div>
       </section>
     </div>
