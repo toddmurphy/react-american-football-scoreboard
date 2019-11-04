@@ -1,10 +1,32 @@
 //TODO: STEP 1 - Import the useState hook.
-import React from "react";
-import "./App.css";
-import BottomRow from "./BottomRow";
+import React, { useState } from 'react';
+import './App.css';
+import BottomRow from './BottomRow';
 
 function App() {
   //TODO: STEP 2 - Establish your applictaion's state with some useState hooks.  You'll need one for the home score and another for the away score.
+  const [homeScore, setHomeScore] = useState(0); //sets the initial home score state value to '0'
+  const [awayScore, setAwayScore] = useState(0); //sets the inital away score state value to '0'
+
+  //onClick eventListener to increase homeScore by 7 points for touchdown
+  const homeTouchdown = event => {
+    setHomeScore(homeScore + 7);
+  };
+
+  //onClick eventListener to increase homeScore by 3 points for fieldgoal
+  const homeFieldgoal = event => {
+    setHomeScore(homeScore + 3);
+  };
+
+  //onClick eventListener to increase awayScore by 7 points for touchdown
+  const awayTouchdown = event => {
+    setAwayScore(awayScore + 7);
+  };
+
+  //onClick eventListener to increase awayScore by 3 points for fieldgoal
+  const awayFieldgoal = event => {
+    setAwayScore(awayScore + 3);
+  };
 
   return (
     <div className="container">
