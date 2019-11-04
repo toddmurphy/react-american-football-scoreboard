@@ -1,7 +1,16 @@
-import React from "react";
-import "./App.css";
+import React, { useState } from 'react';
+import './App.css';
+
+const quarterStart = 1;
 
 const BottomRow = () => {
+  const [quarter, setQuarter] = useState(1); // sets initial state value of quarter to '1'
+
+  // onClick eventListener to increase the quarter by 1 --> maximum of 4 quarters(can't go higher than 4)
+  const quarterTotal = event => {
+    setQuarter(quarter + quarterStart);
+  };
+
   return (
     <div className="bottomRow">
       <div className="down">
@@ -18,7 +27,8 @@ const BottomRow = () => {
       </div>
       <div className="quarter">
         <h3 className="quarter__title">Quarter</h3>
-        <div className="quarter__value">4</div>
+        <div className="quarter__value">{quarter}</div>
+        <button onClick={quarterTotal}>Quarter +</button>
       </div>
     </div>
   );
