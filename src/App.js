@@ -36,8 +36,8 @@ function App() {
   }; */
 
   //Callback function to pass into one function to 'change score/update state'
-  function higherOrderAddToScore(teamScore, typeOfScore, cb) {
-    return cb(teamScore + typeOfScore);
+  function totalPoints(teamScore, typeOfScore, score) {
+    return score(teamScore + typeOfScore);
   }
 
   return (
@@ -63,18 +63,18 @@ function App() {
       <section className="buttons">
         <div className="homeButtons">
           {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-          <button onClick={() => higherOrderAddToScore(lionsScore, touchdown, setLionsScore)} className="homeButtons__touchdown">
+          <button onClick={() => totalPoints(lionsScore, touchdown, setLionsScore)} className="homeButtons__touchdown">
             Home Touchdown
           </button>
-          <button onClick={() => higherOrderAddToScore(lionsScore, fieldgoal, setLionsScore)} className="homeButtons__fieldGoal">
+          <button onClick={() => totalPoints(lionsScore, fieldgoal, setLionsScore)} className="homeButtons__fieldGoal">
             Home Field Goal
           </button>
         </div>
         <div className="awayButtons">
-          <button onClick={() => higherOrderAddToScore(tigersScore, touchdown, setTigersScore)} className="awayButtons__touchdown">
+          <button onClick={() => totalPoints(tigersScore, touchdown, setTigersScore)} className="awayButtons__touchdown">
             Away Touchdown
           </button>
-          <button onClick={() => higherOrderAddToScore(tigersScore, fieldgoal, setTigersScore)} className="awayButtons__fieldGoal">
+          <button onClick={() => totalPoints(tigersScore, fieldgoal, setTigersScore)} className="awayButtons__fieldGoal">
             Away Field Goal
           </button>
           <button
