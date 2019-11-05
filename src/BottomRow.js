@@ -9,10 +9,7 @@ const BottomRow = () => {
   if (quarter > 4) {
     setQuarter((quarter = 4));
   }
-  // onClick eventListener to increase the quarter by 1 --> maximum of 4 quarters(can't go higher than 4)
-  const quarterTotal = event => {
-    setQuarter(quarter + quarterStart);
-  };
+
   return (
     <div className="bottomRow">
       <div className="down">
@@ -30,7 +27,7 @@ const BottomRow = () => {
       <div className="quarter">
         <h3 className="quarter__title">Quarter</h3>
         <div className="quarter__value">{quarter}</div>
-        <button onClick={quarterTotal}>Quarter +</button>
+        <button onClick={() => setQuarter(quarter + quarterStart)}>Quarter +</button>
       </div>
     </div>
   );
