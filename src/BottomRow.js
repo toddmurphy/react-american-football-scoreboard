@@ -1,7 +1,15 @@
-import React from "react";
-import "./App.css";
+import React, { useState } from 'react';
+import './App.css';
+
+const quarterStart = 1;
 
 const BottomRow = () => {
+  let [quarter, setQuarter] = useState(1); // sets initial state value of quarter to '1'
+  // I want the quarters to stop at 4 -> can't be any larger than 4 in football
+  if (quarter > 4) {
+    setQuarter((quarter = 4));
+  }
+
   return (
     <div className="bottomRow">
       <div className="down">
@@ -18,7 +26,8 @@ const BottomRow = () => {
       </div>
       <div className="quarter">
         <h3 className="quarter__title">Quarter</h3>
-        <div className="quarter__value">4</div>
+        <div className="quarter__value">{quarter}</div>
+        <button onClick={() => setQuarter(quarter + quarterStart)}>Quarter +</button>
       </div>
     </div>
   );
